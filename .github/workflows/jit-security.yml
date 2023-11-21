@@ -20,7 +20,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v4.0.5
       with:
-        security_control: registry.jit.io/control-enrichment-slim:latest
+        security_control: registry.jit.io/control-enrichment-slim:main
         
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-secret-detection'
@@ -30,6 +30,6 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@v4.0.5
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:latest
+        security_control: registry.jit.io/control-gitleaks-alpine:main
         security_control_output_file: /tmp/report.json
         
